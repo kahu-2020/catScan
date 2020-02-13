@@ -11,3 +11,4 @@ function catFacts (state = initialState, action) {
 }
 
 export default catFacts
+
