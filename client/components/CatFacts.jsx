@@ -23,7 +23,7 @@ class CatFacts extends React.Component {
         </div>
 
         <div>
-          <button className='btn btn-warning' >Get me cat facts</button>
+          <button className='btn btn-warning' onClick={() => this.props.dispatch(getSavedFacts())} >Get me cat facts</button>
           {this.props.savedFacts.map(fact => <li>{fact.cat_fact}</li>)}
         </div>
       </div>

@@ -43,15 +43,7 @@ export const receiveFacts = (catFact) => {
   }
 }
 
-// export const fetchCatFacts = () => {
-//   return dispatch => {
-//     dispatch(requestFact())
-//     return request.get('https://catfact.ninja/fact?max_length=140')
-//     .then(res => {
-//       dispatch(receiveFacts(res.body))
-//     })
-//   }
-// }
+
 
 export function fetchCatFacts () {
   return (dispatch) => {
