@@ -15,7 +15,7 @@ class CatFacts extends React.Component {
       <div>
         <h1>Catscan</h1>
         <div>
-        <button className='btn btn-warning' onClick={() => this.props.dispatch(saveFact)}>Save my fact</button>
+        <button className='btn btn-warning' onClick={() => this.props.dispatch(saveFact('cats have four feet'))}>Save my fact</button>
         <button className='btn btn-warning'>Next fact</button>
         </div>
         {/* could add the cat facts in here so no passing of props */}

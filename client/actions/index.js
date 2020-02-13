@@ -1,8 +1,9 @@
 import request from 'superagent'
 
-export function saveFact(){
+export function saveFact(catFact) {
     return {
-        type: 'hi'
+        type: 'SAVE_FACT',
+        catFact
     }
 }
 
@@ -38,3 +39,17 @@ export function getSavedFacts () {
     })
   }
 }
+
+export function getSavedFacts () {
+    return (dispatch) => {
+      request.post('/api/v1/saved')// check this route
+      .then(res => res.body)
+      .then(factArray => {
+        dispatch(gotFacts(factArray))
+      })
+    }
+  }
+  
+
+//db function(insert from api route)
+//router (sets up api)
