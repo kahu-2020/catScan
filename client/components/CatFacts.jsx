@@ -6,26 +6,12 @@ import { getSavedFacts } from '../actions'
 import {fetchCatFacts} from '../actions/index'
 
 class CatFacts extends React.Component {
-<<<<<<< HEAD
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      
-    }
-  }
-=======
->>>>>>> master
 
   componentDidMount(){ 
    this.props.dispatch(fetchCatFacts())
   }
 
   render() {
-<<<<<<< HEAD
-    console.log()
-=======
->>>>>>> master
     return (
       <div>
         <h1>Catscan</h1>
