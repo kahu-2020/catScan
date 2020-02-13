@@ -1,7 +1,8 @@
 import React from 'react'
 
 import { connect } from 'react-redux'
-
+// import your action function
+import {saveFact} from '../actions'
 import { getSavedFacts } from '../actions'
 
 class CatFacts extends React.Component {
@@ -15,7 +16,7 @@ class CatFacts extends React.Component {
       <div>
         <h1>Catscan</h1>
         <div>
-          <button className='btn btn-warning'>Save my fact</button>
+        <button className='btn btn-warning' onClick={saveFact}>Save my fact</button>
           <button className='btn btn-warning'>Next fact</button>
         </div>
         <div>
