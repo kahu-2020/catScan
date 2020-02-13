@@ -5,27 +5,15 @@ export function saveFact(){
 }
 
 
-// export const requestPosts = () => {
-//   return {
-//     type: REQUEST_POSTS
-//   }
-// }
 
-// export const receivePosts = (posts) => {
-//   return {
-//     type: RECEIVE_POSTS,
-//     posts: posts.map(post => post.data)
-//   }
-// }
 
 export function gotFacts(facts) {
+  console.log(facts)
   return {
     type: 'GOT_SAVEDFACTS',
     facts
   }
 }
-
-
 
 export function getSavedFacts () {
   return (dispatch) => {
