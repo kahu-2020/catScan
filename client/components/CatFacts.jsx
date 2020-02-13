@@ -1,5 +1,4 @@
 import React from 'react'
-
 import { connect } from 'react-redux'
 // import your action function
 import {saveFact} from '../actions'
@@ -9,7 +8,10 @@ import {fetchCatFacts} from '../actions/index'
 class CatFacts extends React.Component {
   constructor(props) {
     super(props)
-    console.log(props)
+
+    this.state = {
+      
+    }
   }
 
   componentDidMount(){
@@ -17,11 +19,11 @@ class CatFacts extends React.Component {
   }
 
   render() {
-    console.log(this.state)
+    console.log()
     return (
       <div>
         <h1>Catscan</h1>
-        <p>{this.props.catFact}</p>
+        <p>This is where the cat fact will go</p>
         <div>
         <button className='btn btn-warning' onClick={saveFact}>Save my fact</button>
           <button className='btn btn-warning'>Next fact</button>

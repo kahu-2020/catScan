@@ -1,7 +1,5 @@
 import request from 'superagent'
 
-
-
 export function saveFact() {
   console.log('hi')
 }
@@ -40,7 +38,7 @@ export const requestFact = () => {
 export const receiveFacts = (catFact) => {
   return {
     type: 'RECEIVE_FACTS',
-    catFact: catFact.fact
+    catFact: catFact
   }
 }
 
@@ -49,7 +47,7 @@ export const fetchCatFacts = () => {
     dispatch(requestFact())
     return request.get('https://catfact.ninja/fact?max_length=140')
     .then(res => {
-      dispatch(receiveFacts(res.body))
+      dispatch(receiveFacts(res.body.fact))
     })
   }
 }
