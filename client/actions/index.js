@@ -1,7 +1,9 @@
 import request from 'superagent'
 
 export function saveFact(){
-    console.log('hi')
+    return {
+        type: 'hi'
+    }
 }
 
 
