@@ -9,7 +9,6 @@ export function saveFact() {
 
 
 export function gotFacts(facts) {
-  console.log(facts)
   return {
     type: 'GOT_SAVEDFACTS',
     facts
@@ -44,13 +43,24 @@ export const receiveFacts = (catFact) => {
   }
 }
 
-export const fetchCatFacts = () => {
-  return dispatch => {
+// export const fetchCatFacts = () => {
+//   return dispatch => {
+//     dispatch(requestFact())
+//     return request.get('https://catfact.ninja/fact?max_length=140')
+//     .then(res => {
+//       dispatch(receiveFacts(res.body))
+//     })
+//   }
+// }
+
+export function fetchCatFacts () {
+  return (dispatch) => {
     dispatch(requestFact())
-    return request.get('https://catfact.ninja/fact?max_length=140')
-    .then(res => {
-      dispatch(receiveFacts(res.body))
-    })
+    return request
+      .get(`https://catfact.ninja/fact?max_length=140`) 
+      .then(res => {
+        dispatch(receiveFacts(res.body))
+      })
+    }
   }
-}
 

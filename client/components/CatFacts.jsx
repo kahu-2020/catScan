@@ -7,27 +7,23 @@ import { getSavedFacts } from '../actions'
 import {fetchCatFacts} from '../actions/index'
 
 class CatFacts extends React.Component {
-  constructor(props) {
-    super(props)
-    console.log(props)
-  }
 
-  componentDidMount(){
-    this.props.dispatch(fetchCatFacts())
+  componentDidMount(){ 
+   this.props.dispatch(fetchCatFacts())
   }
 
   render() {
-    console.log(this.state)
     return (
       <div>
         <h1>Catscan</h1>
         <p>{this.props.catFact}</p>
         <div>
-        <button className='btn btn-warning' onClick={saveFact}>Save my fact</button>
-          <button className='btn btn-warning'>Next fact</button>
+          <button className='btn btn-warning' onClick={() => this.props.dispatch(saveFact(this.props.catFact))}>Save my fact</button>
+          <button className='btn btn-warning'  onClick={() => {this.props.dispatch(fetchCatFacts())}}>Next fact</button>
         </div>
+
         <div>
-          <button className='btn btn-warning' onClick={() => this.props.dispatch(getSavedFacts())}>Get me cat facts</button>
+          <button className='btn btn-warning' >Get me cat facts</button>
           {this.props.savedFacts.map(fact => <li>{fact.cat_fact}</li>)}
         </div>
       </div>
@@ -38,7 +34,7 @@ class CatFacts extends React.Component {
 function mapStateToProps(state) {
     return {
       savedFacts: state.savedFacts,
-      catFact: state.catFact
+      catFact: state.catFacts
   }
 }
 
