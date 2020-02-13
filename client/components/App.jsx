@@ -1,7 +1,6 @@
 import React from 'react'
 
 import CatFacts from './CatFacts'
-import SavedFacts from './SavedFacts'
 
 const App = () => (
  
