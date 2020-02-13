@@ -1,13 +1,14 @@
 import React from 'react'
-import Link from 'react-router-dom'
+
 import { connect } from 'react-redux'
 // import your action function
 import {saveFact} from '../actions'
 
+import { getSavedFacts } from '../actions'
 class CatFacts extends React.Component {
-
-  // state = { }
-
+  constructor(props) {
+    super(props)
+  }
 
   render() {
     return (
@@ -17,14 +18,20 @@ class CatFacts extends React.Component {
         <button className='btn btn-warning' onClick={saveFact}>Save my fact</button>
         <button className='btn btn-warning'>Next fact</button>
         </div>
-        <button className='btn btn-warning' >View my cat facts</button>  {/* <SavedFacts />  */}
+        {/* could add the cat facts in here so no passing of props */}
+        {/* <SavedFacts />  */}
+        {/* <button className='btn btn-warning' onClick={() => this.props.dispatch( getSavedFacts() )}>Click Me</button>
+        {this.props.savedFacts.map(fact => <li>{fact.cat_fact}</li>)} */}
+
       </div>
     )
   }
 }
 
-// mapStateToProps(){
+// mapStateToProps(state) 
+//   return {
+//     savedFacts: state.savedFacts
+//   }
 
-// }
 
 export default connect()(CatFacts)

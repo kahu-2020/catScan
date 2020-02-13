@@ -1,6 +1,8 @@
 import request from 'superagent'
 
-export function
+export function saveFact(){
+    console.log('hi')
+}
 
 
 // export const requestPosts = () => {
@@ -16,15 +18,21 @@ export function
 //   }
 // }
 
+export function gotFacts(facts) {
+  return {
+    type: 'GOT_SAVEDFACTS',
+    facts
+  }
+}
 
 
-// export function fetchPosts (subreddit) {
-//   return (dispatch) => {
-//     dispatch(requestPosts())
-//     return request
-//       .get(`/api/v1/reddit/subreddit/${subreddit}`)
-//       .then(res => {
-//         dispatch(receivePosts(res.body))
-//       })
-//   }
-// }
+
+export function getSavedFacts () {
+  return (dispatch) => {
+    request.get('/api/v1/saved')// check this route
+    .then(res => res.body)
+    .then(factArray => {
+      dispatch(gotFacts(factArray))
+    })
+  }
+}
