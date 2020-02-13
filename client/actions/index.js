@@ -1,55 +1,57 @@
 import request from 'superagent'
 
-export function saveFact(catFact) {
-    return {
-        type: 'SAVE_FACT',
-        catFact
-    }
+
+
+export function saveFact() {
+  console.log('hi')
+  // .post to db
 }
 
 
-// export const requestPosts = () => {
-//   return {
-//     type: REQUEST_POSTS
-//   }
-// }
-
-// export const receivePosts = (posts) => {
-//   return {
-//     type: RECEIVE_POSTS,
-//     posts: posts.map(post => post.data)
-//   }
-// }
 
 export function gotFacts(facts) {
+  console.log(facts)
   return {
     type: 'GOT_SAVEDFACTS',
     facts
   }
 }
 
-
-
 export function getSavedFacts () {
   return (dispatch) => {
     request.get('/api/v1/saved')// check this route
-    .then(res => res.body)
-    .then(factArray => {
-      dispatch(gotFacts(factArray))
-    })
-  }
-}
-
-export function getSavedFacts () {
-    return (dispatch) => {
-      request.post('/api/v1/saved')// check this route
       .then(res => res.body)
       .then(factArray => {
         dispatch(gotFacts(factArray))
       })
-    }
   }
-  
+}
 
-//db function(insert from api route)
-//router (sets up api)
+// export const fetchCatAPI = () => {
+//   fetch('https://catfact.ninja/fact?max_length=140')
+//   .then(res => res.json())
+// }
+
+export const requestFact = () => {
+  return {
+    type: 'REQUEST_FACT'
+  }
+}
+
+export const receiveFacts = (catFact) => {
+  return {
+    type: 'RECEIVE_FACTS',
+    catFact: catFact.fact
+  }
+}
+
+export const fetchCatFacts = () => {
+  return dispatch => {
+    dispatch(receiveFacts)
+    return request.get('https://catfact.ninja/fact?max_length=140')
+    .then(res => {
+      dispatch(receiveFacts(res.body))
+    })
+  }
+}
+
