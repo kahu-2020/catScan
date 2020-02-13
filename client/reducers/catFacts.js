@@ -1,8 +1,10 @@
+const initialState = 'Error'
 
-function catFacts (state = '', action) {
+function catFacts (state = initialState, action) {
+  console.log(action.type)
   switch (action.type) {
-    // case REQUEST_FACT
-    //   return  
+    case 'RECEIVE_FACTS':
+      return  action.catFact
     default:
       return state
   }

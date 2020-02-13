@@ -1,29 +1,54 @@
 import React from 'react'
-import Link from 'react-router-dom'
+
 import { connect } from 'react-redux'
 // import your action function
+import {saveFact} from '../actions'
+import {fetchCatFacts} from '../actions/index'
+
+import { getSavedFacts } from '../actions'
+
 
 class CatFacts extends React.Component {
+  constructor(props) {
+    super(props)
 
-  // state = { }
+    this.state = {
+      catFact: ''
+    }
+    
+  }
+
+  componentDidMount(){
+    this.props.dispatch(fetchCatFacts())
+  }
 
 
   render() {
+    console.log(this.state)
     return (
       <div>
         <h1>Catscan</h1>
+        <p>{this.props.catFact}</p>
         <div>
-        <button className='btn btn-warning'>Save my fact</button>
+        <button className='btn btn-warning' onClick={saveFact}>Save my fact</button>
         <button className='btn btn-warning'>Next fact</button>
         </div>
-        <button className='btn btn-warning' >View my cat facts</button>  {/* <SavedFacts />  */}
+        {/* could add the cat facts in here so no passing of props */}
+        {/* <SavedFacts />  */}
+        {/* <button className='btn btn-warning' onClick={() => this.props.dispatch( getSavedFacts() )}>Click Me</button>
+        {this.props.savedFacts.map(fact => <li>{fact.cat_fact}</li>)} */}
+
       </div>
     )
   }
 }
 
-// mapStateToProps(){
+function mapStateToProps(state) {
+    return {
+      savedFacts: state.savedFacts,
+      catFact: state.catFact
+  }
+}
 
-// }
 
-export default connect()(CatFacts)
+export default connect(mapStateToProps)(CatFacts)
