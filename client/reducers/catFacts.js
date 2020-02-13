@@ -1,8 +1,8 @@
 
 function catFacts (state = '', action) {
   switch (action.type) {
-    // case RECEIVE_CATFACTS:
-    //   return action.posts
+    // case REQUEST_FACT
+    //   return  
     default:
       return state
   }
