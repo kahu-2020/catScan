@@ -26,11 +26,71 @@ body {
   width: 20px;
 }
 
-p {
+@keyframes backgroundColor {
+  from {background-color:rgb(190, 189, 189);}
+  to {background-color: white;}
+}
+.whole {
+  animation-name: backgroundColor;
+  animation-duration: 30s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  font-family: 'Josefin Sans', sans-serif;
+  background: url(https://wallpaperset.com/w/full/b/0/3/223000.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.error {
+  color: red;
+  font-weight: bold;
+}
+.wait-indicator {
+  position: absolute;
+  margin-left: 5px;
+  width: 20px;
+}
+h1 {
+  font-size: 120px;
   text-align: center;
+  margin-top: 30px;
+  color: rgb(255, 217, 0);
+  text-shadow: 7px 7px black;
+}
+.fact {
+  text-align: center;
+  font-size: 30px;
   border-style: solid;
   border-color: black;
+  border-radius: 10px;
+  width: 50%;
   background-color: white;
-  
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.60);
+  margin: 55px auto 55px auto;
+
+}
+.btn {
+  margin: 10px auto;
+  width: 50%;
+  display: block;
+  font-size: 30px;
+  box-shadow: 0 5px 0 orange;
+  border-radius: 10px
+}
+
+.btn:hover {
+  background-color: orange;
+  cursor: pointer;
+}
+
+.btn:active {
+  box-shadow: none;
+  top: 5px;
+}
+
+.fact-list {
+  font-size: 30px;
+  text-align: center;
+  padding: 5px;
+  color: white;
 
 }

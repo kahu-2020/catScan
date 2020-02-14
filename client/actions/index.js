@@ -2,10 +2,16 @@ import request from 'superagent'
 
 
 
-export function saveFact() {
-  console.log('hi')
+export function savedFact(catFact) {
+    const catObj = {
+        'catFact': catFact 
+    }
+    return () => {
+        request.post('/api/v1/savedFact')
+        .send(catObj)
+        .then(res => res.body)
 }
-
+}
 
 
 export function gotFacts(facts) {
@@ -59,4 +65,3 @@ export function fetchCatFacts () {
       })
     }
   }
-
