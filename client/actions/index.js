@@ -11,7 +11,7 @@ export function saveFact() {
 export function gotFacts(facts) {
   return {
     type: 'GOT_SAVEDFACTS',
-    facts
+    facts: facts
   }
 }
 
@@ -33,6 +33,7 @@ export function getSavedFacts () {
 export const requestFact = () => {
   return {
     type: 'REQUEST_FACT'
+
   }
 }
 
@@ -51,7 +52,10 @@ export function fetchCatFacts () {
     return request
       .get(`https://catfact.ninja/fact?max_length=140`) 
       .then(res => {
-        dispatch(receiveFacts(res.body))
+        setTimeout(() => {
+          console.log(res.body)
+          return dispatch(receiveFacts(res.body))
+        }, 2000);
       })
     }
   }

@@ -9,7 +9,7 @@ import {fetchCatFacts} from '../actions/index'
 class CatFacts extends React.Component {
 
   componentDidMount(){ 
-   this.props.dispatch(fetchCatFacts())
+  //  this.props.dispatch(fetchCatFacts())
   }
 
   render() {
@@ -24,6 +24,7 @@ class CatFacts extends React.Component {
 
         <div>
           <button className='btn btn-warning' onClick={() => this.props.dispatch(getSavedFacts())} >Get me cat facts</button>
+          {this.props.children}
           {this.props.savedFacts.map(fact => <li>{fact.cat_fact}</li>)}
         </div>
       </div>

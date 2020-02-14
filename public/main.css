@@ -1,5 +1,22 @@
+@keyframes backgroundColor {
+  from {background-color: white;}
+  to {background-color: wheat;}
+}
+
+body {
+  animation-name: backgroundColor;
+  animation-duration: 10s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  border-style: solid;
+  border-color: black;
+  border-radius: 10px;
+}
+
+
+
 .error {
-  color: red;
+  color: blue;
   font-weight: bold;
 }
 
@@ -7,4 +24,13 @@
   position: absolute;
   margin-left: 5px;
   width: 20px;
+}
+
+p {
+  text-align: center;
+  border-style: solid;
+  border-color: black;
+  background-color: white;
+  
+
 }
