@@ -24,9 +24,11 @@ class CatFacts extends React.Component {
 
         <div>
           <button className='btn btn-warning' onClick={() => this.props.dispatch(getSavedFacts())} >Get me cat facts</button>
+          {this.props.savedFacts.length &&
           <div className = "fact-list">
              {this.props.savedFacts.map(fact => <p>{fact.cat_fact}</p>)}
           </div>
+          }
          
         </div>
       </div>
