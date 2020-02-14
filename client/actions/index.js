@@ -2,15 +2,19 @@ import request from 'superagent'
 
 
 
-export function saveFact() {
-  console.log('hi')
-  // .post to db
+export function savedFact(catFact) {
+    const catObj = {
+        'catFact': catFact 
+    }
+    return () => {
+        request.post('/api/v1/savedFact')
+        .send(catObj)
+        .then(res => res.body)
+}
 }
 
 
-
 export function gotFacts(facts) {
-  console.log(facts)
   return {
     type: 'GOT_SAVEDFACTS',
     facts
@@ -45,13 +49,15 @@ export const receiveFacts = (catFact) => {
   }
 }
 
-export const fetchCatFacts = () => {
-  return dispatch => {
-    dispatch(receiveFacts)
-    return request.get('https://catfact.ninja/fact?max_length=140')
-    .then(res => {
-      dispatch(receiveFacts(res.body))
-    })
-  }
-}
 
+
+export function fetchCatFacts () {
+  return (dispatch) => {
+    dispatch(requestFact())
+    return request
+      .get(`https://catfact.ninja/fact?max_length=140`) 
+      .then(res => {
+        dispatch(receiveFacts(res.body))
+      })
+    }
+  }
