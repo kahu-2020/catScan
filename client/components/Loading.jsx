@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 const Loading = (props) => {
   console.log(props)
   return props.waiting 
-  ? <img className="LoadingKittyCat" src='/loading.gif' />
+  ? <img className='loading' src='/loading.gif' />
   : null
 } 
 

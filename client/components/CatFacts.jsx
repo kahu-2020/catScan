@@ -16,20 +16,26 @@ class CatFacts extends React.Component {
     return (
       <div >
         <h1>CATSCAN</h1>
+        <div>
+          {this.props.children}
+        </div>
         <p className='fact'>{this.props.catFact}</p>
         <div>
+          <button className='btn btn-warning'  onClick={() => {this.props.dispatch(fetchCatFacts())}}>Fact</button>
+
+    
           <button className='btn btn-warning' onClick={() => this.props.dispatch(savedFact(this.props.catFact))}>Save my fact</button>
-          <button className='btn btn-warning'  onClick={() => {this.props.dispatch(fetchCatFacts())}}>Next fact</button>
         </div>
 
         <div>
           <button className='btn btn-warning' onClick={() => this.props.dispatch(getSavedFacts())} >Get me cat facts</button>
           
-          {this.props.children}
 
+          {this.props.savedFacts.length &&
           <div className = "fact-list">
              {this.props.savedFacts.map(fact => <p>{fact.cat_fact}</p>)}
           </div>
+          }
          
         </div>
       </div>
