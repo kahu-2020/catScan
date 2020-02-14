@@ -14,9 +14,9 @@ class CatFacts extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>Catscan</h1>
-        <p>{this.props.catFact}</p>
+      <div >
+        <h1>CATSCAN</h1>
+        <p className='fact'>{this.props.catFact}</p>
         <div>
           <button className='btn btn-warning' onClick={() => this.props.dispatch(savedFact(this.props.catFact))}>Save my fact</button>
           <button className='btn btn-warning'  onClick={() => {this.props.dispatch(fetchCatFacts())}}>Next fact</button>
@@ -24,7 +24,10 @@ class CatFacts extends React.Component {
 
         <div>
           <button className='btn btn-warning' onClick={() => this.props.dispatch(getSavedFacts())} >Get me cat facts</button>
-          {this.props.savedFacts.map(fact => <li>{fact.cat_fact}</li>)}
+          <div className = "fact-list">
+             {this.props.savedFacts.map(fact => <p>{fact.cat_fact}</p>)}
+          </div>
+         
         </div>
       </div>
     )
